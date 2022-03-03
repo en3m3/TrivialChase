@@ -1,0 +1,98 @@
+{
+    "quiz":[
+        {
+            "question":"Critically acclaimed &quot;Citizen Kane &quot; was directed by which American director?",
+            "answer":"Orson Welles",
+            "wrong1": "Martin Scorsese",
+            "wrong2": "Steven Spielberg",
+            "wrong3": "Alfred Hitchcock",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"medium"
+        },
+        {
+            "question":"Which of the following is the most popular film George Lucas was involed in?",
+            "answer":"Star Wars",
+            "wrong1": "American Graffiti",
+            "wrong2": "THX 1138",
+            "wrong3": "Howard the Duck",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"easy"
+        },
+        {
+            "question":"Which of the following was NOT nominated for best animated film in the 2004 oscars?",
+            "answer":"The Incredibles",
+            "wrong1": "Finding Nemo",
+            "wrong2": "Brother Bear",
+            "wrong3": "The Triples of Belleville",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"medium"
+        },
+        {
+            "question":"Who played the star role: Harry Potter?",
+            "answer":"Daniel Radcliffe",
+            "type": "input",
+            "category":"Entertainment: Film",
+            "difficulty":"easy"
+        },
+        {
+            "question":"Which actor played a wizard, a vampire, and a crimefighting billionaire?",
+            "correct_answer":"Robert Pattinson",
+            "wrong1": "Christopher Lee",
+            "wrong2": "Ben Affleck",
+            "wrong3": "Kevin Conroy",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"easy"
+        },
+        {
+            "question":"In Sam Raimi's &quot;Army of Darkness&quot;, what name does Ash give to his double-barreled shotgun?",
+            "correct_answer":"Boomstick",
+            "wrong1": "Broomstick",
+            "wrong2": "Bangarang",
+            "wrong3": "Sasha",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"medium"
+        },
+        {
+            "question":"In the first &quot;Back to the Future&quot; film, what year does Marty McFly find himself trapped in?",
+            "answer":"1955",
+            "type": "input",
+            "category":"Entertainment: Film",
+            "difficulty":"easy"
+        },
+        {
+            "question":"Which of the following films did NOT have John Williams as the lead composer?",
+            "correct_answer":"Rogue One: A Star Wars Story",
+            "wrong1": "War of the Worlds",
+            "wrong2": "The Adventures of Tintin",
+            "wrong3": "Saving Private Ryan",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"hard"
+        },
+        {
+            "question":"Which of the following have NOT voiced Mickey Mouse?",
+            "correct_answer":"Roy Disney",
+            "wrong1": "Wayne Allwine",
+            "wrong2": "Bret Iwan",
+            "wrong3": "Chris Diamantopoulos",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"easy"
+        },
+        {
+            "question":"Before the adaptation was handed to Peter Jackson, who was originally hired to direct the live-action adaptation of &quot;The Hobbit&quot;?",
+            "correct_answer":"Guillermo del Toro",
+            "wrong1": "Ralph Bakshi",
+            "wrong2": "Christopher Nolan",
+            "wrong3": "Tim Burton",
+            "type": "multi",
+            "category":"Entertainment: Film",
+            "difficulty":"medium"
+        }
+    ]
+}
