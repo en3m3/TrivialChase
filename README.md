@@ -75,12 +75,3 @@ Skyler Foxx – contributor + Editor
 Yrvyn Medina – contributor + Design
 Jaron Whipple – contributor + UX
 Amanda Stokes – contributor + Design
-
-Week 8 Tasks
-Erik Birch – follow up with everyone, figure out plans for next/upcoming weeks
-Erik Moffett – log in system, figure out what else needs to be done/learned
-Martin Melerio – set up folders in github (library, controllers, models, etc.) and view/inserts
-Skyler Foxx – verify Jaron's and Martin's work, make sure files are connected
-Yrvyn Medina – reach out to amanda, verify/check her work.
-Jaron Whipple – set up folders in github (library, controllers, models, etc.) and view/inserts
-Amanda Stokes – Wireframes
