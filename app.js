@@ -29,8 +29,12 @@ if (process.env.NODE_ENV !== 'production') {
   app.set('view engine', 'ejs');
   app.set('views', 'views');
   
-//   const adminRoutes = require('./routes/admin');
-//   const shopRoutes = require('./routes/shop');
+  const questionRoutes = require('./routes/question');
+  const quizRoutes = require('./routes/quiz');
+  const scoreRoutes = require('./routes/score');
+  const tagRoutes = require('./routes/tag');
+  const tokenRoutes = require('./routes/token');
+  const userRoutes = require('./routes/user');
 //   const authRoutes = require('./routes/auth');
   
 //   app.use(bodyParser.urlencoded({extended: false}));
@@ -69,10 +73,13 @@ if (process.env.NODE_ENV !== 'production') {
 //       });
 //   });
    
-//   app.use('/admin', adminRoutes);
-//   app.use(shopRoutes);
-//   app.use(authRoutes);
-  
+  app.use(questionRoutes);
+  app.use(quizRoutes);
+  app.use(scoreRoutes);
+  app.use(tagRoutes);
+  app.use(tokenRoutes);
+  app.use(userRoutes);
+
 //   app.get('/500', errorController.get500);
   
 //   app.use(errorController.get404);
