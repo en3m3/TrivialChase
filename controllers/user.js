@@ -2,8 +2,8 @@ exports.getAllUsers = (req, res, next) => {
     res.status(200).json({
         posts: [{ 
             title: 'user', 
-            // content: 'This is the user endpoint' }]
-            content: req.userId }]
+            content: 'This is the user endpoint' }]
+            // content: req.userId }]
     });
 };
 
@@ -30,6 +30,10 @@ exports.deleteUser = (req, res, next) => {
         posts: [{ title: 'user', content: 'This is the user endpoint' }]
     });
 };
+
+
+
+
 
 
 
