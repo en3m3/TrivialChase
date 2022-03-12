@@ -17,36 +17,53 @@ const userSchema = new Schema({
   },
   resetToken: String,
   resetTokenExpiration: Date,
-  collection: { //collection of quiz sets created and played; similar to Cart
-    quizzes: [ //an array of quiz objects
+  // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
+  //   type: Number,
+  //   required: true,
+  // },
+  quizCollection: {
+    quizzes: [
       {
-      quizId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Quiz',
-        required: true
-      },
-      created: { //was the quiz created by user?
-        type: Boolean,
-        required: true
-      },
-      score: {
-        type: Number,
-        required: false
+        quizId: {
+          type: Schema.Types.ObjectId,
+          ref: 'Quiz',
+          required: true
+        }
       }
-    }
     ]
   }
+
+  // Keep this! Don't erase!
+//   quizCollection: { //Stuff of quiz sets created and played; similar to Cart
+//     quizzes: [ //an array of quiz objects
+//       {
+//       quizId: {
+//         type: Schema.Types.ObjectId,
+//         ref: 'Quiz',
+//         required: true
+//       },
+//       created: { //was the quiz created by user?
+//         type: Boolean,
+//         required: true
+//       },
+//       score: {
+//         type: Number,
+//         required: false
+//       }
+//     }
+//     ]
+//   }
 });
 
-module.exports = mongoose.model('User', userSchema);
+
 
 userSchema.methods.createQuiz = function(quiz) {
   //STEP1 create array of current quizzes
   //STEP2 push parameter quiz into created array
-  //STEP3 make value of collection equal to new created array
+  //STEP3 make value of Stuff equal to new created array
   //STEP4 save
 
-  const updatedQuizzes = [...this.collection.quizzes];//STEP1
+  const updatedQuizzes = [...this.quizCollection.quizzes];//STEP1
   //STEP2
   updatedQuizzes.push({
     quizId: quiz.id,
@@ -54,20 +71,20 @@ userSchema.methods.createQuiz = function(quiz) {
     score: null
   })
   //STEP3
-  const updatedCollection = {
+  const updatedQuizCollection = {
     quizzes: updatedQuizzes
   }
-  this.collection = updatedCollection;
+  this.quizCollection = updatedQuizCollection;
   return this.save();//STEP4
 }
 
 userSchema.methods.addQuiz = function(quiz) { //add like to favorites
   //STEP1 create array of current quizzes
   //STEP2 push parameter quiz into created array
-  //STEP3 make value of collection equal to new created array
+  //STEP3 make value of Stuff equal to new created array
   //STEP4 save
 
-  const updatedQuizzes = [...this.collection.quizzes];//STEP1
+  const updatedQuizzes = [...this.quizCollection.quizzes];//STEP1
   //STEP2
   updatedQuizzes.push({
     quizId: quiz.id,
@@ -75,20 +92,20 @@ userSchema.methods.addQuiz = function(quiz) { //add like to favorites
     score: quiz.score
   })
   //STEP3
-  const updatedCollection = {
+  const updatedQuizCollection = {
     quizzes: updatedQuizzes
   }
-  this.collection = updatedCollection;
+  this.quizCollection= updatedQuizCollection;
   return this.save();//STEP4
 }
 
 userSchema.methods.deleteQuiz = function(quiz){
   //STEP1 create array of current quizzes
   //STEP2 loop through array and see if quiz from parameter matches any current quizzes
-  //STEP3 make value of collection equal to new created array
+  //STEP3 make value of Stuff equal to new created array
   //STEP4 save
 
-  const updatedQuizzes = [...this.collection.quizzes];//STEP1
+  const updatedQuizzes = [...this.quizCollection.quizzes];//STEP1
   //STEP2
   for (let i=0; i<updatedQuizzes.length; i++) { 
     if (updatedQuizzes[i].quizId == quiz.id) {
@@ -103,6 +120,7 @@ userSchema.methods.deleteQuiz = function(quiz){
   return this.save();//STEP4
 }
 
+module.exports = mongoose.model('User', userSchema);
 
 
 
@@ -110,7 +128,7 @@ userSchema.methods.deleteQuiz = function(quiz){
 
 
 
-// // Starter Stuff provided by Martin
+// Starter Stuff provided by Martin
 
 // const mongoose = require('mongoose');
 

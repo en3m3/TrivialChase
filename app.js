@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
   const flash = require('connect-flash');
   
   
-//   const errorController = require('./controllers/error');
+  // const errorController = require('./controllers/error');
   const User = require('./models/user');
   const MONGODB_URI = process.env.MONGODB_URI;
   
@@ -98,6 +98,7 @@ if (process.env.NODE_ENV !== 'production') {
     .connect(MONGODB_URI)
     .then(result => {
       app.listen(PORT);
+      console.log(`connectedTo ${PORT}`)
     })
     .catch(err => {
       console.log(err);
