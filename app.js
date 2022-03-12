@@ -29,12 +29,14 @@ if (process.env.NODE_ENV !== 'production') {
   app.set('view engine', 'ejs');
   app.set('views', 'views');
   
+
   const questionRoutes = require('./routes/question');
   const quizRoutes = require('./routes/quiz');
   const scoreRoutes = require('./routes/score');
   const tagRoutes = require('./routes/tag');
   const tokenRoutes = require('./routes/token');
   const userRoutes = require('./routes/user');
+  console.log("Set Route Variables");
 //   const authRoutes = require('./routes/auth');
   
 //   app.use(bodyParser.urlencoded({extended: false}));
@@ -72,13 +74,15 @@ if (process.env.NODE_ENV !== 'production') {
 //         next(new Error(err));
 //       });
 //   });
-   
+
   app.use(questionRoutes);
   app.use(quizRoutes);
   app.use(scoreRoutes);
   app.use(tagRoutes);
   app.use(tokenRoutes);
   app.use(userRoutes);
+  console.log("Used Route Variables");
+
 
 //   app.get('/500', errorController.get500);
   
@@ -101,7 +105,7 @@ if (process.env.NODE_ENV !== 'production') {
       console.log(`connectedTo ${PORT}`)
     })
     .catch(err => {
-      console.log(err);
+      console.log(err,"ERR, app.js/106");
     });
   
   

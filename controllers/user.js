@@ -37,37 +37,37 @@ exports.deleteUser = (req, res, next) => {
 
 
 
-exports.getLogin = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint' }]
-    });
-};
+// exports.getLogin = (req, res, next) => {
+//     res.status(200).json({
+//         posts: [{ title: 'user', content: 'This is the user endpoint' }]
+//     });
+// };
 
-exports.getSignup = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint' }]
-    });
-};
+// exports.getSignup = (req, res, next) => {
+//     res.status(200).json({
+//         posts: [{ title: 'user', content: 'This is the user endpoint' }]
+//     });
+// };
 
-exports.getReset = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint' }]
-    });
-};
+// exports.getReset = (req, res, next) => {
+//     res.status(200).json({
+//         posts: [{ title: 'user', content: 'This is the user endpoint' }]
+//     });
+// };
 
-exports.getNewPassword = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint' }]
-    });
-};
+// exports.getNewPassword = (req, res, next) => {
+//     res.status(200).json({
+//         posts: [{ title: 'user', content: 'This is the user endpoint' }]
+//     });
+// };
 
 
 
-exports.postLogin = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint' }]
-    });
-};
+// exports.postLogin = (req, res, next) => {
+//     res.status(200).json({
+//         posts: [{ title: 'user', content: 'This is the user endpoint' }]
+//     });
+// };
 
 
 
