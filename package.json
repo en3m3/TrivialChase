@@ -13,5 +13,24 @@
   "devDependencies": {
     "eslint": "^8.10.0",
     "eslint-config-google": "^0.14.0"
-  }
+  },
+  "name": "trivialchase",
+  "description": "Trivillet (Trivia Quizlet)",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/en3m3/TrivialChase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/en3m3/TrivialChase/issues"
+  },
+  "homepage": "https://github.com/en3m3/TrivialChase#readme"
 }

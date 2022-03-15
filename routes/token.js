@@ -6,9 +6,9 @@ const tokenController = require('../controllers/token');
 router.get('/token/:id', tokenController.getToken);
 
 // POST create a new TOKEN
-router.post('/token', tokenController.getToken);
+router.post('/token', tokenController.postToken);
 
 // DETELE a TOKEN
-router.delete('/token', tokenController.getToken);
+router.delete('/token', tokenController.deleteToken);
 
 module.exports = router;

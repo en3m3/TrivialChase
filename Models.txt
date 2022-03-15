@@ -1,0 +1,35 @@
+question:
+- questionId:
+- questionText:
+- questionType
+- answer:
+- wrong1:
+- wrong2:
+- wrong3:
+NOTE(wrong array, answer array)
+- answer:
+
+quiz:
+- quizId:
+- questionId: 
+
+score:
+- id:
+- quizId:
+- userId:
+
+tag:
+- id
+- name: string
+
+user:
+- userId:
+- userEmail:
+- userPassword:
+- scoreId:
+- quizId:
+
+
+Controllers pulling info from models -> json? (not actually making json files, but displaying in form of json)
+
+Note: csrf tokens

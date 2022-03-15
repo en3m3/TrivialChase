@@ -18,10 +18,10 @@ router.get('/quizzes/:tag_id',quizController.getQuiz);
 router.post('/quiz',quizController.getQuiz);
 
 // PUT update existing quiz
-router.put('/quiz',quizController.getQuiz);
+router.put('/quiz',quizController.putQuiz);
 
 // DELETE a quiz
-router.delete('/quiz',quizController.getQuiz);
+router.delete('/quiz',quizController.deleteQuiz);
 
 
 module.exports = router;
