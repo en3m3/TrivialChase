@@ -6,12 +6,23 @@ const Schema = mongoose.Schema;
 const quizSchema = new Schema({
   quiz: [
     {
+      quizId: {
+        type: Number,
+        required: true
+      },
       name: { 
         type: String,
         required: true
       },
-      questions: [QuestionSchema],
-      required: true
+      // questions: [QuestionSchema],
+      // required: true
+      questions: [
+        {questionId: {
+          type: Schema.Types.ObjectId,
+          ref: 'Question',
+          required: true
+        }}
+      ]
     }
   ],
   user: {
