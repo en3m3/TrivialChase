@@ -12,7 +12,7 @@ module.exports = function(mongoose) {
 		email: String
 	});
 
-	this.model = mongoose.model('Score', schema);
+	this.model = mongoose.model('Score', scoreschema);
 
 	return this;
 };  
