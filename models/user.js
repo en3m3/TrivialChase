@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+  userId: {
+    type: Number,
+    required: true
+  },
   username: { //this is app is a game, games use usertags "username or email"
     type: String,
     required: true
