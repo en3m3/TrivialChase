@@ -3,13 +3,13 @@ const express = require('express');
 const router = express.Router();
 const scoreController = require('../controllers/score');
 // GET All scores
-router.get('/scores', scoreController.getScore);
+router.get('/score', scoreController.getScore);
 
 // GET all scores for a quiz
-router.get('/scores/:quiz_id', scoreController.getScore);
+router.get('/score/:quiz_id', scoreController.getScore);
 
 // GET all scores for a user
-router.get('/scores/:user_id', scoreController.getScore);
+router.get('/score/:user_id', scoreController.getScore);
 
 
 module.exports = router;
