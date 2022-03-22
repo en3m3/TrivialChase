@@ -18,19 +18,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-<<<<<<< HEAD
-  // usserStatus: {
-
-  // }
-=======
   quizScores: {
     quizId: Schema.Types.ObjectId
   },
-  
->>>>>>> ab5090c9051ef23ba451c1d8f81624d5421a8de5
   resetToken: String,
   resetTokenExpiration: Date,
-
   quizCollection: {
     quizzes: [
       {
