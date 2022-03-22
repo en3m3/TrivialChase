@@ -1,6 +1,7 @@
 const User = require('C:/Users/User/OneDrive/Desktop/School/BYU-Idaho 8th Semester (Winter 2022)/CSE 341 (Web Backend Dev II)/TrivialChase/models/user.js');
 
 exports.getAllUsers = (req, res, next) => {
+    console.log(User.username)
     res.status(200).json({
         posts: [{ 
             title: 'user', 

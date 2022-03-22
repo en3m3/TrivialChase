@@ -1,0 +1,449 @@
+swagger: '2.0'
+info:
+  description: |
+    Project Management API Documentation
+  version: 1.0.0
+  title: Project Management
+tags:
+- name: project
+  description: Operations about project
+paths:
+  /signup:
+    put:
+      tags:
+      - user
+      summary: Create user
+      description: username and password (username needs to be unique)
+      operationId: createUser
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created user object
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        201:
+          description: successfully created user
+          schema:
+            $ref: '#/definitions/User'
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /login:
+    post:
+      tags:
+      - user
+      summary: Authenticate User
+      description: username and password
+      operationId: loginUser
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Authenticated User
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        201:
+          description: Successfully Authenticated user
+          schema:
+            $ref: '#/definitions/User'
+        401:
+          description: Invalid Credentials
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /logout:
+    post:
+      tags:
+      - user
+      summary: End User Session
+      description: Finish User Session
+      operationId: logoutUser
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: User Session Ended
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        201:
+          description: User logged out
+          schema:
+            $ref: '#/definitions/User'
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /task:
+    post:
+      tags: 
+      - task
+      summary: Create task
+      description: Add task to database to be made available to employees
+      operationId: createTask
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created task object
+        required: true
+        schema:
+          $ref: '#/definitions/Task'
+      responses:
+        201:
+          description: successfully created user
+          schema:
+            type: string
+        403:
+          description: Invalid Task
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /tasks:
+    get:
+      tags:
+      - task
+      summary: get all task info
+      operationId: getAllTasks
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            additionalProperties:
+              type: integer
+              format: int32
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /task/{taskId}:
+    get:
+      tags:
+      - task
+      summary: find task by Id
+      operationId: getTask
+      produces:
+      - application/json
+      parameters: 
+      - name: taskId
+        in: path
+        description: Pull chosen task info from database
+        required: true
+        type: string
+      responses:
+        200:
+            description: Task data retrieved
+            schema:
+              $ref: '#/definitions/Task'
+        404:
+          description: Task not found
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+    put:
+      tags:
+      - task
+      summary: Update existing task
+      operationId: updateTask
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: taskId
+        description: Update the chosen task with new information
+        required: true
+        type: string
+      responses:
+        201:
+            description: Task data retrieved
+            schema:
+              $ref: '#/definitions/Task'
+        403:
+          description: Invalid ID supplied
+          schema:
+            type: string
+        404:
+          description: Task not found
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+    delete:
+      tags:
+      - task
+      summary: Delete task by ID
+      description: Delete individual task from database by ID
+      operationId: deleteTask
+      produces:
+      - application/json
+      parameters:
+      - name: taskId
+        in: path
+        description: ID of the task that needs to be deleted
+        required: true
+        type: string
+      responses:
+        200:
+          description: Task successfully deleted
+        403:
+          description: Invalid ID supplied
+        404:
+          description: Task not found
+    
+  /companies/addCompany/{companyId}:
+    post:
+      tags: 
+      - company
+      summary: Create company
+      description: Add company to the database
+      operationId: createCompany
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: companyId
+        description: ID of company that needs to be updated
+        required: true
+        type: string
+      responses:
+        201:
+          description: successfully created company
+          schema:
+            type: string
+        403:
+          description: Invalid Task
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /companies:
+    get:
+      tags:
+      - company
+      summary: find task by Id
+      operationId: getCompany
+      produces:
+      - application/json
+      parameters: 
+      - name: companies
+        in: body
+        description: Pull company info from database
+        required: true
+        schema:
+          $ref: '#/definitions/Company'
+      responses:
+        200:
+            description: Companies data retrieved
+            schema:
+              $ref: '#/definitions/Company'
+        404:
+          description: Task not found
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+    # update
+    # delete
+    
+  /companies/updateCompany/{companyId}:
+    put:
+      tags: 
+      - company
+      summary: Update Company
+      description: Update company object with new information
+      operationId: updateCompany
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: companyId
+        description: Update Company
+        required: true
+        type: string
+      responses:
+        201:
+          description: Successfully update company
+          schema:
+            $ref: '#/definitions/Company'
+        403:
+          description: Invalid Company Object
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+  /companies/deleteCompany/{companyId}:
+    delete:
+      tags: 
+      - company
+      summary: Delete Company
+      description: Delete company object
+      operationId: deleteCompany
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: companyId
+        description: Delete Company
+        required: true
+        type: string
+      responses:
+        201:
+          description: Successfully updated company
+          schema:
+            type: string
+        403:
+          description: Invalid Company Object
+          schema:
+            type: string
+        500:
+          description: Failed to process request
+          schema:
+            type: string
+definitions:
+  User:
+    type: object
+    properties:
+      _id:
+        type: integer
+        format: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      confirmPassword:
+        type: string
+      tasks:
+        type: array
+        items: 
+          $ref: '#/definitions/Task'
+      company:
+        type: string
+        items: 
+          $ref: '#/definitions/Company'
+  # UserCredentials:
+  #   type: object
+  #   properties:
+  #     email:
+  #       type: string
+  #     password:
+  #       type: string
+  #     confirmPassword:
+  #       type: string
+  #     company:
+  #       type: string
+  Task:
+    type: object
+    properties:
+      _id:
+        type: integer
+        format: string
+      title:
+        type: string
+      description:
+        type: string
+      date_created:
+        type: string
+      due_date:
+        type: string
+      status:
+        type: string
+      creator_user_id:
+        type: string
+        format: string
+      assigned_to:
+        type: integer
+        format: string
+      priority:
+        type: string
+  Company:
+    type: object
+    properties:
+      _id:
+        type: integer
+        format: string
+      company_name:
+        type: string
+      logo:
+        type: string
+      employees:
+        type: array
+        items: 
+          $ref: '#/definitions/User'
+      tasks:
+        type: array
+        items: 
+          $ref: '#/definitions/Task'
+
+# host: localhost:8081 or appname.herokuapp.com
+# basePath: /
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+
+# host: cse341-wdd330-task-manager.herokuapp.com
+
+# basePath: /project-manageme/Library/1.0.0
+
+schemes:
+ - https
+ - http
+
+# Added by API Auto Mocking Plugin
+
+basePath: /project_management/Library/1.0.0
+# Added by API Auto Mocking Plugin
+# host: virtserver.swaggerhub.com
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+

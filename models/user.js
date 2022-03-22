@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+// const QuizSchema = require('quiz.js');
 const Schema = mongoose.Schema;
+
 
 const userSchema = new Schema({
   userId: {
@@ -18,9 +20,9 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  quizScores: {
-    quizId: Schema.Types.ObjectId
-  },
+  // usserStatus: {
+
+  // }
   resetToken: String,
   resetTokenExpiration: Date,
   // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
