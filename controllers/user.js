@@ -2,16 +2,15 @@ const User = require('C:/Users/User/OneDrive/Desktop/School/BYU-Idaho 8th Semest
 
 exports.getAllUsers = (req, res, next) => {
     console.log(User.username)
-    // res.status(200).json({
-    //     req.user.populate('usser.username')
-    //     posts: [{ 
-    //         title: 'user', 
-    //         content: 'This is the user endpoint, getAllUsers',
-    //         number: 25,
-    //         array: ["string",User.email,25, User,true,24]
-    //      }]
-    //         // content: req.userId }]
-    // });
+    res.status(200).json({
+        posts: [{ 
+            title: 'user', 
+            content: 'This is the user endpoint, getAllUsers',
+            number: 25,
+            array: ["string",User.email,25, User,true,24]
+         }]
+            // content: req.userId }]
+    });
 };
 
 exports.getUser = (req, res, next) => {
