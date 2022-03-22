@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const questionSchema = new Schema( )
+
 //  ***    I was a little confused by the meeting notes doc in teams of needing a quizId and questionId. Below the schema has the basic structure for the quiz and the user who owns the overall quiz, and then the questions are loaded using the question schema built in that model. Please advise - Amanda    ***
 const quizSchema = new Schema({
   quiz: [
@@ -18,7 +20,7 @@ const quizSchema = new Schema({
       // required: true
       questions: [
         {questionId: {
-          type: Schema.Types.ObjectId,
+          type: Schema,
           ref: 'Question',
           required: true
         }}

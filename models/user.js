@@ -19,12 +19,12 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  // usserStatus: {
+
+  // }
   resetToken: String,
   resetTokenExpiration: Date,
-  // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
-  //   type: Number,
-  //   required: true,
-  // },
+
   quizCollection: {
     quizzes: [
       {
