@@ -1,16 +1,26 @@
-http://localhost:3000/question
-###
-http://localhost:3000/quiz
-###
-http://localhost:3000/score
-###
-http://localhost:3000/tag
-###
-http://localhost:3000/token
-###
-http://localhost:3000/user
-###
-http://localhost:3000/user/62393b40149411e13e61ab73
+@port = {{$processEnv PORT}}
+@hostname = {{$processEnv HOSTNAME}}
 
+http://{{hostname}}:{{port}}/question
 ###
-POST http://localhost:3000/user
+http://{{hostname}}:{{port}}/quiz
+###
+http://{{hostname}}:{{port}}/score
+###
+http://{{hostname}}:{{port}}/tag
+###
+http://{{hostname}}:{{port}}/token
+###
+http://{{hostname}}:{{port}}/user
+
+
+# <<<<<<< HEAD
+# http://localhost:3000/user
+# ###
+# http://localhost:3000/user/62393b40149411e13e61ab73
+
+# ###
+# POST http://localhost:3000/user
+# =======
+# http://{{hostname}}:{{port}}/user
+# >>>>>>> 7e2d3ed885871c050c20dea21eee66d6514b5621
