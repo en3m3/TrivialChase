@@ -9,3 +9,8 @@ http://localhost:3000/tag
 http://localhost:3000/token
 ###
 http://localhost:3000/user
+###
+http://localhost:3000/user/62393b40149411e13e61ab73
+
+###
+POST http://localhost:3000/user
