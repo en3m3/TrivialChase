@@ -22,3 +22,4 @@ exports.deleteToken = (req, res, next) => {
         posts: [{ title: 'token', content: 'This is the token endpoint' }]
     });
 };
+

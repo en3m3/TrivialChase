@@ -22,3 +22,9 @@ exports.deleteScore = (req, res, next) => {
         posts: [{ title: 'score', content: 'This is the score endpoint' }]
     });
 };
+
+exports.getHighScores = (req, res, next) => {
+    res.status(200).json({
+        posts: [{ title: 'score', content: 'This is the score endpoint' }]
+    });
+};
