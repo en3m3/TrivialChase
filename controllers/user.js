@@ -1,15 +1,13 @@
-// Ensure that references to other files in TrivialChase start with '../' instead of a local file path
 const User = require('../models/user.js');
 
 exports.getAllUsers = (req, res, next) => {
-    console.log(User.username)
-    res.status(200).json({
-        posts: [{ 
-            title: 'user', 
-            content: 'This is the user endpoint, getAllUsers',
-            number: 25,
-            array: ["string",User.email,25, User,true,24]
-         }]
+    console.log(User.username);
+    User.find()
+    .then(user =>{
+        res.status(200).json({
+            user: user
+    });
+
             // content: req.userId }]
     });
 };
