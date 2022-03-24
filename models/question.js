@@ -26,18 +26,14 @@ const questionSchema = new Schema({
           type: String 
         }
       },
-      type: {
+      questionType: {
         type: String,
         enum: ['multi','input','category','jeopardy']
       },
-      tag: [TagSchema]
+      // tag: [TagSchema] //not necessary, question tags != quiz tags
     }
   ,
   user: {
-    email: {
-      type: String,
-      required: true
-    },
     userId: {
       type: Schema.Types.ObjectId,
       required: true,

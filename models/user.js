@@ -23,8 +23,13 @@ const userSchema = new Schema({
   // usserStatus: {
 
   // }
-  resetToken: String,
-  resetTokenExpiration: Date,
+  resetToken: {
+    type: String,
+  },
+  resetTokenExpiration: {
+    type: Date,
+    format: String,
+  },
   // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
   //   type: Number,
   //   required: true,
@@ -36,6 +41,13 @@ const userSchema = new Schema({
       required: true
     }}
   ],
+  scores: [
+    {scoreId: {
+      type: Schema,
+      ref: "Score",
+      required: true
+    }}
+  ]
 
 
   // Keep this! Don't erase!

@@ -6,8 +6,14 @@ const Schema = mongoose.Schema;
 
 const tokenSchema = new Schema(
     {
-        Token: String,
-        TokenExpiration: Date,
+        Token: {
+            type: String,
+            required: true
+        },
+        TokenExpiration: {
+            type: Date,
+            required: true
+        }
     }
 );
 

@@ -1,18 +1,35 @@
 // The Score Model
 const mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-module.exports = function(mongoose) {
-	var Schema = mongoose.Schema;
-	var ObjectId = Schema.ObjectId;
+var scoreSchema = new Schema({
+	scoreId: {
+		type: String,
+		required: true
+	},
+	score: {
+		type: Number,
+		required: true
+	},
+	date: {
+		type: Date,
+		format: String,
+		default: Date.now
+	},
+	user: {
+		userId: {
+			type: Schema.Types.ObjectId,
+			required: true,
+			ref: 'User'
+		}
+	},
+	quiz:
+		{quizId: {
+			type: Schema,
+			ref: 'Quiz',
+			required: true
+		}},
+});
 
-	var schema = new Schema({
-		username: String,
-		score: Number,
-		date: {type: Date, default: Date.now},
-		email: String
-	});
 
-	this.model = mongoose.model('Score', scoreschema);
-
-	return this;
-};  
+module.exports = mongoose.model("Score", scoreSchema);

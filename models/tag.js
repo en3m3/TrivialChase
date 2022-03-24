@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const tagSchema = new Schema({
   tagId: {
-    name: Number 
+    type: Number 
   },
   tag: {
-    name: String 
+    type: String 
   }
 });
 
