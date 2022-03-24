@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  userId: {
+  _id: {
     type: Number,
     required: true
   },
@@ -29,17 +29,14 @@ const userSchema = new Schema({
   //   type: Number,
   //   required: true,
   // },
-  quizCollection: {
-    quizzes: [
-      {
-        quizId: {
-          type: Schema.Types.ObjectId,
-          ref: 'Quiz',
-          required: true
-        }
-      }
-    ]
-  }
+  quizzes: [
+    {quizId: {
+      type: Schema,
+      ref: 'Quiz',
+      required: true
+    }}
+  ],
+
 
   // Keep this! Don't erase!
 //   quizCollection: { //Stuff of quiz sets created and played; similar to Cart

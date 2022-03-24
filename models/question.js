@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const TagSchema = new Schema(tagSchema);
 const questionSchema = new Schema({
-  question: [
+  question:
     {
       question: { 
         type: String 
@@ -26,7 +26,7 @@ const questionSchema = new Schema({
       },
       tag: [TagSchema]
     }
-  ],
+  ,
   user: {
     email: {
       type: String,

@@ -511,10 +511,7 @@
           "type": "integer",
           "format": "string"
         },
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
+        "username": {
           "type": "string"
         },
         "email": {
@@ -523,56 +520,56 @@
         "password": {
           "type": "string"
         },
-        "confirmPassword": {
-          "type": "string"
+        "resetToken": {
+          "type": "integer",
+          "format": "string"
         },
-        "tasks": {
+        "resetTokenExpiration": {
+          "type": "date",
+          "format": "string"
+        },
+        "quizzes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Task"
+            "$ref": "#/definitions/Quiz"
           }
-        },
-        "company": {
-          "type": "string"
         }
       }
     },
-    "Task": {
+    "Quiz": {
       "type": "object",
       "properties": {
-        "_id": {
+        "quizid": {
           "type": "integer",
           "format": "string"
         },
-        "title": {
+        "name": {
           "type": "string"
         },
-        "description": {
-          "type": "string"
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#definitions/Question"
+          }
         },
-        "date_created": {
-          "type": "string"
-        },
-        "due_date": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "creator_user_id": {
-          "type": "string",
-          "format": "string"
-        },
-        "assigned_to": {
-          "type": "integer",
-          "format": "string"
-        },
-        "priority": {
-          "type": "string"
+        "user": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "integer",
+              "format": "string",
+              "items": {
+                "$ref":"#/definitions/User"
+              }
+            }
+          }
         }
       }
     },
-    "Company": {
+    "Question": {
       "type": "object",
       "properties": {
         "_id": {
