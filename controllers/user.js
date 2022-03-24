@@ -1,4 +1,4 @@
-const User = require('C:/Users/User/OneDrive/Desktop/School/BYU-Idaho 8th Semester (Winter 2022)/CSE 341 (Web Backend Dev II)/TrivialChase/models/user.js');
+const User = require('../models/user.js');
 
 exports.getAllUsers = (req, res, next) => {
     console.log(User.username)
