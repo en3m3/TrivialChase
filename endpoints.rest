@@ -1,11 +1,14 @@
-http://localhost:3000/question
+@port = {{$processEnv PORT}}
+@hostname = {{$processEnv HOSTNAME}}
+
+http://{{hostname}}:{{port}}/question
 ###
-http://localhost:3000/quiz
+http://{{hostname}}:{{port}}/quiz
 ###
-http://localhost:3000/score
+http://{{hostname}}:{{port}}/score
 ###
-http://localhost:3000/tag
+http://{{hostname}}:{{port}}/tag
 ###
-http://localhost:3000/token
+http://{{hostname}}:{{port}}/token
 ###
-http://localhost:3000/user
+http://{{hostname}}:{{port}}/user
