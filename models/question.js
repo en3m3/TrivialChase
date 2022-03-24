@@ -5,20 +5,26 @@ const TagSchema = new Schema(tagSchema);
 const questionSchema = new Schema({
   question:
     {
+      questionId: {
+        type: Number,
+        required: true
+      },
       question: { 
         type: String 
       },
       answer: { 
         type: String 
       },
-      wrong1: { 
+      wrong: {
+        wrong1: { 
         type: String 
-      },
-      wrong2: { 
-        type: String 
-      },
-      wrong3: {
-         type: String 
+        },
+        wrong2: { 
+          type: String 
+        },
+        wrong3: {
+          type: String 
+        }
       },
       type: {
         type: String,

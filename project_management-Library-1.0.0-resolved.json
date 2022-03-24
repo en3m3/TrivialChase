@@ -572,29 +572,87 @@
     "Question": {
       "type": "object",
       "properties": {
-        "_id": {
+        "question": {
+          "type": "object",
+          "properties": {
+            "questionid": {
           "type": "integer",
           "format": "string"
         },
-        "company_name": {
+        "question": {
           "type": "string"
         },
-        "logo": {
+        "answer": {
           "type": "string"
         },
-        "employees": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/User"
+        "wrong": {
+          "type": "object",
+          "properties": {
+            "wrong1": {
+              "type": "string"
+            },
+            "wrong2": {
+              "type": "string"
+            },
+            "wrong3": {
+              "type": "string"
+            }
           }
         },
-        "tasks": {
+
+
+        "tag": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Task"
+            "$ref": "#/definitions/Tag"
+          }
+        }
+          }
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "integer",
+              "format": "string",
+              "items": {
+                "$ref":"#/definitions/User"
+              }
+            }
           }
         }
       }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "tagId": {
+          "type": "integer"
+        },
+        "tag": {
+          "type": "string"
+        }
+      }
+    },
+    "Token": {
+      "type": "object",
+      "properties": {
+        "Token": {
+          "type": "string"
+        },
+        "resetTokenExpiration": {
+          "type": {
+            "type": "date",
+            "format": "string"
+          }
+        }
+      }
+    },
+    "Score": {
+      
     }
   }
 }
