@@ -1,3 +1,10 @@
+exports.getAllTags = (req, res, next) => {
+    console.log("here");
+    res.status(200).json({
+        posts: [{ title: 'tag', content: 'This is the tag endpoint' }]
+    });
+};
+
 exports.getTag = (req, res, next) => {
     console.log("here");
     res.status(200).json({

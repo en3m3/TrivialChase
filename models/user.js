@@ -36,14 +36,14 @@ const userSchema = new Schema({
   // },
   quizzes: [
     {quizId: {
-      type: Schema,
+      type: Schema.Types.ObjectId,
       ref: 'Quiz',
       required: true
     }}
   ],
   scores: [
     {scoreId: {
-      type: Schema,
+      type: Schema.Types.ObjectId,
       ref: "Score",
       required: true
     }}

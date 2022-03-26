@@ -13,6 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
   const csrf = require('csurf');
   const flash = require('connect-flash');
   
+  // require('dotenv').config(); //heroku stuff
   
   // const errorController = require('./controllers/error');
   const User = require('./models/user');
@@ -32,13 +33,15 @@ if (process.env.NODE_ENV !== 'production') {
   app.set('views', 'views');
   
 
-  const questionRoutes = require('./routes/question');
-  const quizRoutes = require('./routes/quiz');
-  const scoreRoutes = require('./routes/score');
-  const tagRoutes = require('./routes/tag');
-  const tokenRoutes = require('./routes/token');
   const userRoutes = require('./routes/user');
+  const quizRoutes = require('./routes/quiz');
+  const questionRoutes = require('./routes/question');
+  const tagRoutes = require('./routes/tag');
+  const scoreRoutes = require('./routes/score');
+  const tokenRoutes = require('./routes/token');
   console.log("Set Route Variables");
+
+
 //   const authRoutes = require('./routes/auth');
   
 //   app.use(bodyParser.urlencoded({extended: false}));
