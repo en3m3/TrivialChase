@@ -11,7 +11,7 @@ http://{{hostname}}:{{port}}/tag
 ###
 http://{{hostname}}:{{port}}/token
 ###
-http://{{hostname}}:{{port}}/user
+http://{{hostname}}:{{port}}/user/62393a49149411e13e61ab70
 
 
 # <<<<<<< HEAD
