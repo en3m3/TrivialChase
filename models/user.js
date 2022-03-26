@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  userId: {
+  _id: {
     type: Number,
     required: true
   },
@@ -23,23 +23,32 @@ const userSchema = new Schema({
   // usserStatus: {
 
   // }
-  resetToken: String,
-  resetTokenExpiration: Date,
+  // resetToken: {
+  //   type: String,
+  // },
+  // resetTokenExpiration: {
+  //   type: Date,
+  //   format: String,
+  // },
   // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
   //   type: Number,
   //   required: true,
   // },
-  quizCollection: {
-    quizzes: [
-      {
-        quizId: {
-          type: Schema.Types.ObjectId,
-          ref: 'Quiz',
-          required: true
-        }
-      }
-    ]
-  }
+  quizzes: [
+    {quizId: {
+      type: Schema,
+      ref: 'Quiz',
+      required: true
+    }}
+  ],
+  scores: [
+    {scoreId: {
+      type: Schema,
+      ref: "Score",
+      required: true
+    }}
+  ]
+
 
   // Keep this! Don't erase!
 //   quizCollection: { //Stuff of quiz sets created and played; similar to Cart

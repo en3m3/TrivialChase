@@ -24,14 +24,16 @@ const quizSchema = new Schema({
           ref: 'Question',
           required: true
         }}
+      ],
+      tag: [
+        {tagId: {
+          type: Schema,
+          ref: 'Tag',
+        }}
       ]
     }
   ],
   user: {
-    email: {
-      type: String,
-      required: true
-    },
     userId: {
       type: Schema.Types.ObjectId,
       required: true,

@@ -13,8 +13,15 @@ exports.getAllUsers = (req, res, next) => {
 };
 
 exports.getUser = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint, getUser' }]
+    console.log(req.params.id, "16");
+    User.findById(req.params.id)
+    .then(user =>{
+        console.log(user, "19");
+        res.status(200).json({
+            user: user._id
+    });
+
+            // content: req.userId }]
     });
 };
 
