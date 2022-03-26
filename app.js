@@ -13,6 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
   const csrf = require('csurf');
   const flash = require('connect-flash');
   
+  // require('dotenv').config(); //heroku stuff
   
   // const errorController = require('./controllers/error');
   const User = require('./models/user');
@@ -39,6 +40,8 @@ if (process.env.NODE_ENV !== 'production') {
   const tokenRoutes = require('./routes/token');
   const userRoutes = require('./routes/user');
   console.log("Set Route Variables");
+
+
 //   const authRoutes = require('./routes/auth');
   
 //   app.use(bodyParser.urlencoded({extended: false}));

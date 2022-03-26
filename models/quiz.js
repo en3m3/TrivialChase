@@ -20,14 +20,14 @@ const quizSchema = new Schema({
       // required: true
       questions: [
         {questionId: {
-          type: Schema,
+          type: Schema.Types.ObjectId,
           ref: 'Question',
           required: true
         }}
       ],
       tag: [
         {tagId: {
-          type: Schema,
+          type: Schema.Types.ObjectId,
           ref: 'Tag',
         }}
       ]

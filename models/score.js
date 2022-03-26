@@ -25,7 +25,7 @@ var scoreSchema = new Schema({
 	},
 	quiz:
 		{quizId: {
-			type: Schema,
+			type: Schema.Types.ObjectId,
 			ref: 'Quiz',
 			required: true
 		}},
