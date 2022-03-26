@@ -15,10 +15,10 @@ router.get('/quizzes/:user_id',quizController.getQuiz);
 router.get('/quizzes/:tag_id',quizController.getQuiz);
 
 // POST create new quiz
-router.post('/quiz/create/:user_id',quizController.postCreateQuiz);
+router.post('/quiz/create/:user_id',quizController.postQuiz);
 
 // PUT update existing quiz
-router.put('/quiz/:id',quizController.putUpdateQuiz);
+router.put('/quiz/:id',quizController.putQuiz);
 
 // DELETE a quiz
 router.delete('/quiz/:id',quizController.deleteQuiz);

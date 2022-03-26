@@ -1,23 +1,17 @@
-exports.getToken = (req, res, next) => {
+exports.getSessionToken = (req, res, next) => {
     console.log("here");
     res.status(200).json({
         posts: [{ title: 'token', content: 'This is the token endpoint' }]
     });
 };
 
-exports.postToken = (req, res, next) => {
+exports.postSessionToken = (req, res, next) => {
     res.status(200).json({
         posts: [{ title: 'token', content: 'This is the token endpoint' }]
     });
 };
 
-exports.putToken = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'token', content: 'This is the token endpoint' }]
-    });
-};
-
-exports.deleteToken = (req, res, next) => {
+exports.deleteSessionToken = (req, res, next) => {
     res.status(200).json({
         posts: [{ title: 'token', content: 'This is the token endpoint' }]
     });

@@ -33,12 +33,12 @@ if (process.env.NODE_ENV !== 'production') {
   app.set('views', 'views');
   
 
-  const questionRoutes = require('./routes/question');
-  const quizRoutes = require('./routes/quiz');
-  const scoreRoutes = require('./routes/score');
-  const tagRoutes = require('./routes/tag');
-  const tokenRoutes = require('./routes/token');
   const userRoutes = require('./routes/user');
+  const quizRoutes = require('./routes/quiz');
+  const questionRoutes = require('./routes/question');
+  const tagRoutes = require('./routes/tag');
+  const scoreRoutes = require('./routes/score');
+  const tokenRoutes = require('./routes/token');
   console.log("Set Route Variables");
 
 

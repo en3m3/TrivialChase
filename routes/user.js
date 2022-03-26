@@ -9,10 +9,10 @@ router.get('/user', userController.getAllUsers);
 router.get('/user/:id', userController.getUser);
 
 // POST create a new USER
-router.post('/user/create', userController.postCreateUser);
+router.post('/user/create', userController.postUser);
 
 // PUT update an existing USER
-router.put('/user/update/:id', userController.putUpdateUser);
+router.put('/user/update/:id', userController.putUser);
 
 // DETELE a USER
 router.delete('/user/delete/:id', userController.deleteUser);
