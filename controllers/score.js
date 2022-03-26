@@ -1,15 +1,53 @@
+const mongoose = require('mongoose');
+const Score = require('../models/score');
+const HighScores = require('../models/score');
+
 exports.getScore = (req, res, next) => {
-    console.log("here");
-    res.status(200).json({
-        posts: [{ title: 'score', content: 'This is the score endpoint' }]
-    });
-};
+    Score.find()
+    .then(score=>{
+        console.log(score);
+        res.render('score/score-list',{
+            scores: score,
+            pageTitle: 'Scores',
+            path: '/score'
+          });
+        })
+        .catch(err => {
+            const error = new Error(err);
+            error.httpStatusCode = 500;
+            return next(error);
+          });
+      };
+
+   
 
 exports.postScore = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'score', content: 'This is the score endpoint' }]
+    req.user
+    .populate('score.scores.userId')
+    .execPopulate()
+    .then(user => {      
+      const score = new Score({
+        user: {
+          email: req.user.email,
+          userId: req.user
+        },
+        score: score
+      });
+      return score.save();
+    })
+    .then(result => {
+      return req.user.clearscore();
+    })
+    .then(() => {
+      res.redirect('/score');
+    })
+    .catch(err => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
+    
 
 exports.putScore = (req, res, next) => {
     res.status(200).json({
@@ -18,12 +56,25 @@ exports.putScore = (req, res, next) => {
 };
 
 exports.deleteScore = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'score', content: 'This is the score endpoint' }]
-    });
-};
+    const score = req.body.score;
+    req.user
+      .removeFromCart(score)
+      .then(result => {
+        res.redirect('/score');
+      })
+      .catch(err => {
+        const error = new Error(err);
+        error.httpStatusCode = 500;
+        return next(error);
+      });
+  };
 
 exports.getHighScores = (req, res, next) => {
+    HighScores.find()
+    .then(score => {
+        console.log(score);
+    }) 
+
     res.status(200).json({
         posts: [{ title: 'score', content: 'This is the score endpoint' }]
     });
