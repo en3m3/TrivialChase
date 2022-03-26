@@ -329,7 +329,7 @@
 				],
 				"summary": "Get a quiz by UserId",
 				"description": "Get Info on single quiz",
-				"operationId": "getQuiz",
+				"operationId": "getQuizByUser",
 				"produces": [
 					"application/json"
 				],
@@ -365,7 +365,7 @@
 				],
 				"summary": "Get a quiz by tagId",
 				"description": "Get Info on single quiz",
-				"operationId": "getQuiz",
+				"operationId": "getQuizByTag",
 				"produces": [
 					"application/json"
 				],
@@ -407,8 +407,8 @@
 				],
 				"parameters": [{
 						"in": "body",
-						"name": "quizname",
-						"description": "inputed quizname",
+						"name": "quizName",
+						"description": "inputed quizName",
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/Quiz"
@@ -465,7 +465,7 @@
 				],
 				"summary": "update quiz",
 				"description": "update quiz in database along with their info",
-				"operationId": "postUpdateQuiz",
+				"operationId": "postQuiz",
 				"produces": [
 					"application/json"
 				],
@@ -480,8 +480,8 @@
 					},
 					{
 						"in": "body",
-						"name": "quizname",
-						"description": "inputed quizname",
+						"name": "quizName",
+						"description": "inputed quizName",
 						"required": false,
 						"schema": {
 							"$ref": "#/definitions/Quiz"
@@ -858,7 +858,7 @@
 				],
 				"summary": "create session token",
 				"description": "starts sessino by creating session",
-				"operationId": "createSession",
+				"operationId": "createSessionToken",
 				"produces": [
 					"application/json"
 				],
@@ -1007,7 +1007,7 @@
 				"produces": [
 					"application/json"
 				],
-				"parameters": [{
+				"parameters": {
 					"in": "path",
 					"name": "_id",
 					"description": "Id of single quiz",
@@ -1015,7 +1015,7 @@
 					"schema": {
 						"$ref": "#/definitions/Quiz"
 					}
-				}],
+				},
 				"responses": {
 					"201": {
 						"description": "successfully collected user",
@@ -1052,6 +1052,42 @@
 						"$ref": "#/definitions/User"
 					}
 				}],
+				"responses": {
+					"201": {
+						"description": "successfully collected Score",
+						"schema": {
+							"$ref": "#/definitions/Score"
+						}
+					},
+					"500": {
+						"description": "Failed to process request",
+						"schema": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"/score/highscore{userId}": {
+			"get": {
+				"tags": [
+					"score"
+				],
+				"summary": "Get the highest score(s?) by user Id",
+				"description": "Get Info on single score",
+				"operationId": "getHighScores",
+				"produces": [
+					"application/json"
+				],
+				"parameters": {
+					"in": "path",
+					"name": "userId",
+					"description": "Id of single user",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/User"
+					}
+				},
 				"responses": {
 					"201": {
 						"description": "successfully collected Score",

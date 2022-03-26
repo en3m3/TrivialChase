@@ -9,10 +9,10 @@ router.get('/quizzes',quizController.getAllQuizzes);
 router.get('/quiz/:id',quizController.getQuiz);
 
 // GET all quizzes created by a user
-router.get('/quizzes/:user_id',quizController.getQuiz);
+router.get('/quizzes/:user_id',quizController.getQuizByUser);
 
 // GET all quizzes associated with a TAG
-router.get('/quizzes/:tag_id',quizController.getQuiz);
+router.get('/quizzes/:tag_id',quizController.getQuizByTag);
 
 // POST create new quiz
 router.post('/quiz/create/:user_id',quizController.postQuiz);
