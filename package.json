@@ -9,6 +9,7 @@
     "get": "^1.4.0",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.4",
+    "nodemon": "^2.0.15",
     "rest": "^2.0.0"
   },
   "devDependencies": {
