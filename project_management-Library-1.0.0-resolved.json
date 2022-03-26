@@ -1283,14 +1283,6 @@
 				"password": {
 					"type": "string"
 				},
-				"resetToken": {
-					"type": "integer",
-					"format": "string"
-				},
-				"resetTokenExpiration": {
-					"type": "date",
-					"format": "string"
-				},
 				"quizzes": {
 					"type": "array",
 					"items": {

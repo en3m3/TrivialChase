@@ -23,13 +23,13 @@ const userSchema = new Schema({
   // usserStatus: {
 
   // }
-  resetToken: {
-    type: String,
-  },
-  resetTokenExpiration: {
-    type: Date,
-    format: String,
-  },
+  // resetToken: {
+  //   type: String,
+  // },
+  // resetTokenExpiration: {
+  //   type: Date,
+  //   format: String,
+  // },
   // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
   //   type: Number,
   //   required: true,
