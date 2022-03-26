@@ -7,22 +7,26 @@ exports.getAllUsers = (req, res, next) => {
         res.status(200).json({
             user: user
     });
-
-            // content: req.userId }]
+// content: req.userId }]
     });
 };
 
 exports.getUser = (req, res, next) => {
-    console.log(req.params.id, "16");
-    User.findById(req.params.id)
+    console.log(req.params._id, "16");
+    User.findById(req.params._id)
     .then(user =>{
         console.log(user, "19");
         res.status(200).json({
             user: user._id
     });
-
-            // content: req.userId }]
-    });
+    })
+    .catch(err => {
+        console.log(err, "ERR! ERR!, admin.js/60");
+        const error = new Error(err);
+        error.httpStatusCode = 500;
+        return next(error);
+        // useErrorMiddleware() //not sure how to do easy functions like I used to be able to
+      });
 };
 
 exports.postUser = (req, res, next) => {

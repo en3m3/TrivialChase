@@ -12,7 +12,7 @@ router.get('/score/:quiz_id', scoreController.getScoreByQuiz);
 router.get('/score/:user_id', scoreController.getScoreByUser);
 
 // GET user's high score(s?)
-router.get('/score/:user_id', scoreController.getHighScores); // 1 high score or all high scores?
+router.get('/score/highscore/:user_id', scoreController.getHighScores); // 1 high score or all high scores?
 
 // POST create a new score linked to quiz
 router.post('/score/:quiz_id', scoreController.postScore);
