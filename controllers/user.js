@@ -12,12 +12,12 @@ exports.getAllUsers = (req, res, next) => {
 };
 
 exports.getUser = (req, res, next) => {
-    console.log(req.params._id, "16");
-    User.findById(req.params._id)
+    console.log(req.params, "16");
+    User.findById(req.params.id)
     .then(user =>{
         console.log(user, "19");
         res.status(200).json({
-            user: user._id
+            user: user
     });
     })
     .catch(err => {

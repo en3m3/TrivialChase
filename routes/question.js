@@ -4,7 +4,7 @@ const router = express.Router();
 
 const questionController = require('../controllers/question');
 // GET all questions
-router.get('/questions', questionController.getAllQuestion);
+router.get('/question', questionController.getAllQuestion);
 
 // GET single question by ID
 router.get('/question/:id', questionController.getQuestion);

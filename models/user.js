@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  _id: {
-    type: Number,
+  userId: {
+    type: String,
     required: true
   },
   username: { //this is app is a game, games use usertags "username or email"
