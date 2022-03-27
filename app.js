@@ -79,7 +79,10 @@ if (process.env.NODE_ENV !== 'production') {
 //         next(new Error(err));
 //       });
 //   });
-
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+  app.use(bodyParser.json());
   app.use(questionRoutes);
   app.use(quizRoutes);
   app.use(scoreRoutes);
