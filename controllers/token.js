@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Token = require('../models/token');
 
+// Check if there's a token
 exports.getSessionToken = (req, res, next) => {
     console.log(req.session.getSessionToken);
     res.status(200).json({
@@ -8,6 +9,7 @@ exports.getSessionToken = (req, res, next) => {
     });
 };
 
+// Creates token when person logs in
 exports.postSessionToken = (req, res, next) => {
     req.session.postSessionToken;
     res.status(200).json({
@@ -15,6 +17,7 @@ exports.postSessionToken = (req, res, next) => {
     });
 };
 
+// Destroy the token in the database
 exports.deleteSessionToken = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);
