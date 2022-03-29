@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
+const Token = require('../models/token');
 
 exports.getSessionToken = (req, res, next) => {
-    console.log("here");
-    req.session.getSessionToken;
+    console.log(req.session.getSessionToken);
     res.status(200).json({
-        posts: [{ title: 'token', content: 'This is the token endpoint' }]
+        posts: [{ title: 'Token', content: 'This is the token endpoint' }]
     });
 };
 
