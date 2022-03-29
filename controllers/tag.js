@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Tag = require('../models/tag');
 
 exports.getAllTags = (req, res, next) => {
-    Tag.find().then(tag => {
-        console.log(tag);
-        res.status(200).json({
-            tag: tag })
-    });
+    const tag = Tag.find()
+    .then(tag => res.status(200).json(tag))
+    .then(console.log('Tags retrieved sucessfully'))
+    .catch(err => res.json(err));
 };
 
 exports.getTag = (req, res, next) => {
@@ -18,7 +17,6 @@ exports.getTag = (req, res, next) => {
 
 exports.postTag = (req, res, next) => {
     const tag = new Tag({
-        tag_id: req.body.id,
         tag: req.body.tag
     })
     tag.save().
@@ -26,14 +24,14 @@ exports.postTag = (req, res, next) => {
         res.status(200).json(data);
     }).catch(err => {
         res.json(err);
-    })
-    ;
+    });
 };
 
 exports.putTag = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'tag', content: 'This is the tag endpoint' }]
-    });
+    Tag.updateOne({_id: req.params.id}, {$set: req.body})
+    .then(res.status(200).json({message: 'Updated Successfully'}))
+    .then(console.log('Tag updated successfully'))
+    .catch(err => res.json(err));
 };
 
 exports.deleteTag = (req, res, next) => {

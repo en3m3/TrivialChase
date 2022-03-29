@@ -49,9 +49,10 @@ exports.postAddQuestion = (req, res, next) => {
 };
 
 exports.putQuestion = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'question', content: 'This is the question endpoint' }]
-    });
+    Question.updateOne({_id: req.params.id}, {$set: req.body})
+    .then(res.status(200).json({message: 'Updated Successfully'}))
+    .then(console.log('Question updated successfully'))
+    .catch(err => res.json(err));
 };
 
 exports.deleteQuestion = (req, res, next) => {
