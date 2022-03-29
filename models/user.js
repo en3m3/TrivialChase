@@ -34,7 +34,7 @@ const userSchema = new Schema({
   //   type: Number,
   //   required: true,
   // },
-  quizzes: [
+  quizzes: [ //quizzesTaken //quizzes create are in quiz model
     {quizId: {
       type: Schema.Types.ObjectId,
       ref: 'Quiz',
