@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
 const Score = require('../models/score');
 const HighScores = require('../models/score');
+const Quiz = require('../models/quiz');
+const User = require('../models/user');
 
 exports.getAllScores = (req, res, next) => {
-  Score.find()
+  const scoreId = req.params.scoreId;
+  Score.find(scoreId)
     .then(score=>{
         console.log(score);
-        res.render('score/score-list',{
-            scores: score,
-            pageTitle: 'Scores',
-            path: '/score'
+        res.status(200).json({
+            score: score,
+            pageTitle: 'Scores'            
           });
         })
     .catch(err => {
@@ -20,13 +22,13 @@ exports.getAllScores = (req, res, next) => {
 };
 
 exports.getScoreByQuiz = (req, res, next) => {
-  Score.find()
+  const quizId = req.params.quizId;
+  Quiz.findById(quizId)
   .then(score=>{
-      console.log(score);
-      res.render('score/score-list',{
-          scores: score,
-          pageTitle: 'Scores',
-          path: '/score'
+      console.log(Score);
+      res.status(200).json({
+          score: score,
+          
         });
       })
   .catch(err => {
@@ -37,13 +39,13 @@ exports.getScoreByQuiz = (req, res, next) => {
 };
 
 exports.getScoreByUser = (req, res, next) => {
-  Score.find()
+  const userId = req.params.userId;
+  Score.find(userId)
   .then(score=>{
-      console.log(score);
-      res.render('score/score-list',{
-          scores: score,
-          pageTitle: 'Scores',
-          path: '/score'
+      console.log(Score);      
+      res.status(200).json({
+          score: score,
+          
         });
       })
   .catch(err => {
@@ -54,7 +56,8 @@ exports.getScoreByUser = (req, res, next) => {
 };
 
 exports.getHighScores = (req, res, next) => { //GET 1 high score or all High Scores
-    HighScores.find()
+  const scoreId = req.params.scoreId;
+    HighScores.find(scoreId)
     .then(score => {
         console.log(score);
     }) 
@@ -82,7 +85,9 @@ exports.postScore = (req, res, next) => {
       return req.user.clearscore();
     })
     .then(() => {
-      res.redirect('/score');
+      res.status(200).json({
+        score: Score,        
+      });
     })
     .catch(err => {
       const error = new Error(err);
@@ -99,11 +104,11 @@ exports.putScore = (req, res, next) => {
 };
 
 exports.deleteScore = (req, res, next) => {
-    const score = req.body.score;
+    const scoreId = req.body.scoreId;
     req.user
-      .removeFromCart(score)
+      .removeFromScore(scoreId)
       .then(result => {
-        res.redirect('/score');
+        res.status(200).json({ message: 'Score Deleted.' });
       })
       .catch(err => {
         const error = new Error(err);
