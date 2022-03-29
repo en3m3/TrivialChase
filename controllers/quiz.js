@@ -1,68 +1,53 @@
-exports.getAllQuizzes = (req, res, next) => {
-    console.log(Quiz.name);
-    User.find()
-    .then(quiz =>{
-        res.status(200).json({
-            quiz: quiz
-    });
+const Quiz = require('../models/quiz');
 
-            // content: req.userId }]
-    });
+exports.getAllQuizzes = (req, res, next) => {
+    const quizzes = Quiz.find()
+    .then(quizzes => res.status(200).json(quizzes))
+    .then(console.log('Quizzes retrieved sucessfully'))
+    .catch(err => res.json(err));
 };
 
 exports.getQuiz = (req, res, next) => {
-    console.log(req.params.id, "16");
-    Quiz.findById(req.params.id)
-    .then(quiz =>{
-        console.log(quiz, "19");
-        res.status(200).json({
-            quiz: quiz._id
-    });
-
-            // content: req.userId }]
-    });
+    const quiz = Quiz.findById(req.params.id)
+    .then(quiz => res.status(200).json(quiz))
+    .then(console.log('Quiz retrieved sucessfully by id'))
+    .catch(err => res.json(err));
 };
 
 exports.getQuizByUser = (req, res, next) => {
-    console.log(req.params.id, "16");
-    Quiz.findById(req.params.id)
-    .then(quiz =>{
-        console.log(quiz, "19");
-        res.status(200).json({
-            quiz: quiz._id
-    });
-
-            // content: req.userId }]
-    });
-};
-
-exports.getQuizByTag = (req, res, next) => {
-    console.log(req.params.id, "16");
-    Quiz.findById(req.params.id)
-    .then(quiz =>{
-        console.log(quiz, "19");
-        res.status(200).json({
-            quiz: quiz._id
-    });
-
-            // content: req.userId }]
-    });
+    const quiz = Quiz.find({ user: req.params.user_id})
+    .then(quiz => res.status(200).json(quiz))
+    .then(console.log('Quiz retrieved sucessfully by user id'))
+    .catch(err => res.json(err));
 };
 
 exports.postQuiz = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'quiz', content: 'This is the quiz endpoint' }]
+    const quiz = new Quiz(
+        {
+            questions: req.body.questions,
+            user: req.body.user
+        }
+    );
+    quiz.save()
+    .then(data => {
+        res.status(200).json(data);
+    })
+    .then(console.log('Quiz created sucessfully'))
+    .catch(err => {
+        res.json(err);
     });
 };
 
 exports.putQuiz = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'quiz', content: 'This is the quiz endpoint' }]
-    });
+    Quiz.updateOne({_id: req.params.id}, {$set: req.body})
+    .then(res.status(200).json({message: 'Updated Successfully'}))
+    .then(console.log('Quiz updated successfully'))
+    .catch(err => res.json(err));
 };
 
 exports.deleteQuiz = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'quiz', content: 'This is the quiz endpoint' }]
-    });
+    Quiz.deleteOne({_id: req.params.id})
+    .then(res.status(200).json({message: 'Deleted Successfully'}))
+    .then(console.log('Quiz deleted successfully'))
+    .catch(err => res.json(err));
 };

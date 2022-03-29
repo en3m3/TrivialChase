@@ -15,7 +15,7 @@ exports.getQuestionByUser = (req, res, next) => {
 };
 
 exports.getQuestionByTag = (req, res, next) => {
-    const question = Question.find({tag: req.params.tag_id})
+    const question = Question.find({'tags._id': req.params.tag_id})
     .then(question => res.status(200).json(question))
     .then(console.log('Questions retrieved sucessfully by tag id'))
     .catch(err => res.json(err));
@@ -36,16 +36,17 @@ exports.postAddQuestion = (req, res, next) => {
         wrong2: req.body.wrong2,
         wrong3: req.body.wrong3,
         type: req.body.type,
-        tag: req.body.tag,
+        tags: req.body.tag,
         user: req.body.user
     });
-    quest.save().
-    then(data => {
+    quest.save()
+    .then(data => {
         res.status(200).json(data);
-    }).catch(err => {
-        res.json(err);
     })
-    ;
+    .then(console.log('Questions added sucessfully'))
+    .catch(err => {
+        res.json(err);
+    });
 };
 
 exports.putQuestion = (req, res, next) => {

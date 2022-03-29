@@ -3,25 +3,22 @@ const express = require('express');
 const router = express.Router();
 const quizController = require('../controllers/quiz');
 // GET all quizzes
-router.get('/quizzes',quizController.getAllQuizzes);
+router.get('/quiz', quizController.getAllQuizzes);
 
 // GET single quiz by ID
-router.get('/quiz/:id',quizController.getQuiz);
+router.get('/quiz/:id', quizController.getQuiz);
 
 // GET all quizzes created by a user
-router.get('/quizzes/:user_id',quizController.getQuizByUser);
-
-// GET all quizzes associated with a TAG
-router.get('/quizzes/:tag_id',quizController.getQuizByTag);
+router.get('/quiz/user/:user_id', quizController.getQuizByUser);
 
 // POST create new quiz
-router.post('/quiz/create/:user_id',quizController.postQuiz);
+router.post('/quiz', quizController.postQuiz);
 
 // PUT update existing quiz
-router.put('/quiz/:id',quizController.putQuiz);
+router.put('/quiz/:id', quizController.putQuiz);
 
 // DELETE a quiz
-router.delete('/quiz/:id',quizController.deleteQuiz);
+router.delete('/quiz/:id', quizController.deleteQuiz);
 
 
 module.exports = router;

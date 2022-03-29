@@ -21,11 +21,12 @@ const questionSchema = new Schema({
     type: String,
     enum: ['multi','input','category','jeopardy']
   },
-  tag: {
-    type: Schema.Types.ObjectId,
-    ref: 'Tag',
-    required: false
-  },
+  tags: [{
+    tag: {
+      type: Object,
+      required: false
+    }
+  }],
   user: {
     type: Schema.Types.ObjectId,
     required: true,
