@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Token = require('../models/token');
 
 exports.getSessionToken = (req, res, next) => {
     console.log(req.session.getSessionToken);
