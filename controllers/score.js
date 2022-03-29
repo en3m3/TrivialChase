@@ -5,115 +5,59 @@ const Quiz = require('../models/quiz');
 const User = require('../models/user');
 
 exports.getAllScores = (req, res, next) => {
-  const scoreId = req.params.scoreId;
-  Score.find(scoreId)
-    .then(score=>{
-        console.log(score);
-        res.status(200).json({
-            score: score,
-            pageTitle: 'Scores'            
-          });
-        })
-    .catch(err => {
-        const error = new Error(err);
-        error.httpStatusCode = 500;
-        return next(error);
-      });
+  const scores = Score.find()
+  .then(scores => res.status(200).json(scores))
+  .then(console.log('Scores retrieved sucessfully'))
+  .catch(err => res.json(err));
 };
-
 exports.getScoreByQuiz = (req, res, next) => {
-  const quizId = req.params.quizId;
-  Quiz.findById(quizId)
-  .then(score=>{
-      console.log(Score);
-      res.status(200).json({
-          score: score,
-          
-        });
-      })
-  .catch(err => {
-      const error = new Error(err);
-      error.httpStatusCode = 500;
-      return next(error);
-    });
+  const quizScores = Score.find({quiz: req.params.quiz_id})
+    .then(quizScores => res.status(200).json(quizScores))
+    .then(console.log('Scores retrieved sucessfully by Quiz id'))
+    .catch(err => res.json(err));
 };
 
 exports.getScoreByUser = (req, res, next) => {
-  const userId = req.params.userId;
-  Score.find(userId)
-  .then(score=>{
-      console.log(Score);      
-      res.status(200).json({
-          score: score,
-          
-        });
-      })
-  .catch(err => {
-      const error = new Error(err);
-      error.httpStatusCode = 500;
-      return next(error);
-    });
+  const score = Score.find({user: req.params.user_id})
+    .then(score => res.status(200).json(score))
+    .then(console.log('Score retrieved sucessfully by User id'))
+    .catch(err => res.json(err));
 };
 
 exports.getHighScores = (req, res, next) => { //GET 1 high score or all High Scores
-  const scoreId = req.params.scoreId;
-    HighScores.find(scoreId)
-    .then(score => {
-        console.log(score);
-    }) 
-
-    res.status(200).json({
-        posts: [{ title: 'score', content: 'This is the score endpoint' }]
-    });
-};   
+  const highscore = Score.find()
+  .then(highscore => res.status(200).json(highscore))
+  .then(console.log('High Scores retrieved sucessfully'))
+  .catch(err => res.json(err));
+};
 
 exports.postScore = (req, res, next) => {
-    req.user
-    .populate('score.scores.userId')
-    .execPopulate()
-    .then(user => {      
-      const score = new Score({
-        user: {
-          email: req.user.email,
-          userId: req.user
-        },
-        score: score
-      });
-      return score.save();
-    })
-    .then(result => {
-      return req.user.clearscore();
-    })
-    .then(() => {
-      res.status(200).json({
-        score: Score,        
-      });
-    })
-    .catch(err => {
-      const error = new Error(err);
-      error.httpStatusCode = 500;
-      return next(error);
-    });
+  const scor = new Score({
+    quizId: req.body.quizId,
+    score: req.body.score,
+    date: req.body.date,
+    user: req.body.user,
+    quiz: req.body.quiz
+});
+scor.save().
+then(data => {
+    res.status(200).json(data);
+}).catch(err => {
+    res.json(err);
+});
 };
-    
 
 exports.putScore = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'score', content: 'This is the score endpoint' }]
-    });
+  Score.updateOne({quiz_id: req.params.quiz_id}, {$set: req.body})
+    .then(res.status(200).json({message: 'Updated Successfully'}))
+    .then(console.log('Scores updated successfully'))
+    .catch(err => res.json(err));
 };
 
 exports.deleteScore = (req, res, next) => {
-    const scoreId = req.body.scoreId;
-    req.user
-      .removeFromScore(scoreId)
-      .then(result => {
-        res.status(200).json({ message: 'Score Deleted.' });
-      })
-      .catch(err => {
-        const error = new Error(err);
-        error.httpStatusCode = 500;
-        return next(error);
-      });
-  };
+  Score.deleteOne({quiz_id: req.params.quiz_id})
+  .then(res.status(200).json({message: 'Deleted Successfully'}))
+  .then(console.log('Scores deleted successfully'))
+  .catch(err => res.json(err));
+};
 
