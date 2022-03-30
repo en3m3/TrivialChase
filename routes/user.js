@@ -1,4 +1,5 @@
 const express = require('express');
+const isAuth = require('../middleware/auth');
 
 const router = express.Router();
 const userController = require('../controllers/user');
@@ -12,11 +13,12 @@ router.get('/user/:id', userController.getUser);
 router.post('/user/create', userController.postUser);
 
 // PUT update an existing USER
-router.put('/user/update/:id', userController.putUser);
+router.put('/user/update/:id', isAuth ,userController.putUser);
 
 // DETELE a USER
 router.delete('/user/delete/:id', userController.deleteUser);
 
+router.get('/login', userController.getLogin);
 
 module.exports = router;
 

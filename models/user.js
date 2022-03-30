@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  userId: {
-    type: String,
-    required: true
-  },
   username: { //this is app is a game, games use usertags "username or email"
     type: String,
     required: true
@@ -23,13 +19,13 @@ const userSchema = new Schema({
   // usserStatus: {
 
   // }
-  // resetToken: {
-  //   type: String,
-  // },
-  // resetTokenExpiration: {
-  //   type: Date,
-  //   format: String,
-  // },
+  token: {
+    type: String,
+  },
+  tokenexpiration: {
+    type: Date,
+    format: String,
+  },
   // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
   //   type: Number,
   //   required: true,
