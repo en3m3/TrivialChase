@@ -1,14 +1,17 @@
 {
     "quiz":[
         {
-            "question":"Critically acclaimed &quot;Citizen Kane &quot; was directed by which American director?",
+            "question":"Critically acclaimed Citizen Kane was directed by which American director?",
             "answer":"Orson Welles",
             "wrong1": "Martin Scorsese",
             "wrong2": "Steven Spielberg",
             "wrong3": "Alfred Hitchcock",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"medium"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393a49149411e13e61ab70"
         },
         {
             "question":"Which of the following is the most popular film George Lucas was involed in?",
@@ -17,8 +20,11 @@
             "wrong2": "THX 1138",
             "wrong3": "Howard the Duck",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"easy"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393b40149411e13e61ab73"
         },
         {
             "question":"Which of the following was NOT nominated for best animated film in the 2004 oscars?",
@@ -27,72 +33,96 @@
             "wrong2": "Brother Bear",
             "wrong3": "The Triples of Belleville",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"medium"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393b61149411e13e61ab74"
         },
         {
             "question":"Who played the star role: Harry Potter?",
             "answer":"Daniel Radcliffe",
             "type": "input",
-            "category":"Entertainment: Film",
-            "difficulty":"easy"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393bc1149411e13e61ab75"
         },
         {
             "question":"Which actor played a wizard, a vampire, and a crimefighting billionaire?",
-            "correct_answer":"Robert Pattinson",
+            "answer":"Robert Pattinson",
             "wrong1": "Christopher Lee",
             "wrong2": "Ben Affleck",
             "wrong3": "Kevin Conroy",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"easy"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393a49149411e13e61ab70"
         },
         {
-            "question":"In Sam Raimi's &quot;Army of Darkness&quot;, what name does Ash give to his double-barreled shotgun?",
-            "correct_answer":"Boomstick",
+            "question":"In Sam Raimi's Army of Darkness what name does Ash give to his double-barreled shotgun?",
+            "answer":"Boomstick",
             "wrong1": "Broomstick",
             "wrong2": "Bangarang",
             "wrong3": "Sasha",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"medium"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393b40149411e13e61ab73"
         },
         {
-            "question":"In the first &quot;Back to the Future&quot; film, what year does Marty McFly find himself trapped in?",
+            "question":"In the first Back to the Future film, what year does Marty McFly find himself trapped in?",
             "answer":"1955",
             "type": "input",
-            "category":"Entertainment: Film",
-            "difficulty":"easy"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393b61149411e13e61ab74"
         },
         {
             "question":"Which of the following films did NOT have John Williams as the lead composer?",
-            "correct_answer":"Rogue One: A Star Wars Story",
+            "answer":"Rogue One: A Star Wars Story",
             "wrong1": "War of the Worlds",
             "wrong2": "The Adventures of Tintin",
             "wrong3": "Saving Private Ryan",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"hard"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393bc1149411e13e61ab75"
         },
         {
             "question":"Which of the following have NOT voiced Mickey Mouse?",
-            "correct_answer":"Roy Disney",
+            "answer":"Roy Disney",
             "wrong1": "Wayne Allwine",
             "wrong2": "Bret Iwan",
             "wrong3": "Chris Diamantopoulos",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"easy"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393a49149411e13e61ab70"
         },
         {
-            "question":"Before the adaptation was handed to Peter Jackson, who was originally hired to direct the live-action adaptation of &quot;The Hobbit&quot;?",
-            "correct_answer":"Guillermo del Toro",
+            "question":"Before the adaptation was handed to Peter Jackson, who was originally hired to direct the live-action adaptation of The Hobbit?",
+            "answer":"Guillermo del Toro",
             "wrong1": "Ralph Bakshi",
             "wrong2": "Christopher Nolan",
             "wrong3": "Tim Burton",
             "type": "multi",
-            "category":"Entertainment: Film",
-            "difficulty":"medium"
+            "tag": {
+                "_id": "624335d9eac7f554ed8ec213",
+                "tag": "Entertainment: Film"
+            },
+            "user": "62393b40149411e13e61ab73"
         }
     ]
 }
