@@ -36,8 +36,8 @@ exports.postHighScores = (req, res, next) => {
     quizId: req.body.quizId,
     score: req.body.score,
     date: req.body.date,
-    user: req.body.user,
-    quiz: req.body.quiz
+    user_id: req.body.user_id,
+    quiz_id: req.body.quiz_id
 });
 scor.save().
 then(data => {
