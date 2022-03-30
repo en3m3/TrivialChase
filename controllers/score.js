@@ -25,7 +25,7 @@ exports.getScoreByUser = (req, res, next) => {
 };
 
 exports.getHighScores = (req, res, next) => { //GET 1 high score or all High Scores
-  const highscore = Score.find({score: req.params.quiz_id >=  75})
+  const highscore = Score.find({score: req.params.user_id >=  75})
   .then(highscore => res.status(200).json(highscore))
   .then(console.log('High Scores retrieved sucessfully'))
   .catch(err => res.json(err));
