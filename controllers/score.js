@@ -25,10 +25,26 @@ exports.getScoreByUser = (req, res, next) => {
 };
 
 exports.getHighScores = (req, res, next) => { //GET 1 high score or all High Scores
-  const highscore = Score.find()
+  const highscore = Score.find({score: req.params.quiz_id >=  75})
   .then(highscore => res.status(200).json(highscore))
   .then(console.log('High Scores retrieved sucessfully'))
   .catch(err => res.json(err));
+};
+
+exports.postHighScores = (req, res, next) => {
+  const scor = new HighScores({
+    quizId: req.body.quizId,
+    score: req.body.score,
+    date: req.body.date,
+    user: req.body.user,
+    quiz: req.body.quiz
+});
+scor.save().
+then(data => {
+    res.status(200).json(data);
+}).catch(err => {
+    res.json(err);
+});
 };
 
 exports.postScore = (req, res, next) => {
