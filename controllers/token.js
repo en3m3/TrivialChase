@@ -25,3 +25,12 @@ exports.deleteSessionToken = (req, res, next) => {
         posts: [{ title: 'token', content: 'This is the token endpoint' }]
     });
 };
+
+exports.loginRequest = (req, res, next) => {
+    req.session.destroy(err => {
+        console.log(err);
+    });
+    res.status(200).json({
+        posts: [{ title: 'token', content: 'This is the token endpoint' }]
+    });
+};
