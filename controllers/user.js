@@ -64,16 +64,17 @@ exports.postUser = (req, res, next) => {
 
 
 exports.putUser = (req, res, next) => {
-    console.log("updating");
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint, putUpdateUser' }]
-    });
+    User.updateOne({_id: req.params.id}, {$set: req.body})
+    .then(res.status(200).json({message: 'Updated Successfully'}))
+    .then(console.log('Update updated successfully'))
+    .catch(err => res.json(err));
 };
 
 exports.deleteUser = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title: 'user', content: 'This is the user endpoint, deleteUser' }]
-    });
+    User.deleteOne({_id: req.params.id})
+    .then(res.status(200).json({message: 'Deleted Successfully'}))
+    .then(console.log('User deleted successfully'))
+    .catch(err => res.json(err));
 };
 
 exports.getLogin = (req, res, next) => {
