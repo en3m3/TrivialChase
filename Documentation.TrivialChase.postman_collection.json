@@ -1,0 +1,1002 @@
+{
+	"info": {
+		"_postman_id": "3bd5deb5-56b0-47ae-8c8c-6b2684beb220",
+		"name": "TrivialChase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Question Controller",
+			"item": [
+				{
+					"name": "Add Question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\":\"Before the adaptation was handed to Peter Jackson, who was originally hired to direct the live-action adaptation of The Hobbit?\",\n    \"answer\":\"Guillermo del Toro\",\n    \"wrong1\": \"Ralph Bakshi\",\n    \"wrong2\": \"Christopher Nolan\",\n    \"wrong3\": \"Tim Burton\",\n    \"type\": \"multi\",\n    \"tag\": {\n        \"_id\": \"624335d9eac7f554ed8ec213\",\n        \"tag\": \"Entertainment: Film\"\n    },\n    \"user\": \"62393b40149411e13e61ab73\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question/create",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Question by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question/62433cff9dbf6f8bc4090c86",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question",
+								"62433cff9dbf6f8bc4090c86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question/user/62393b40149411e13e61ab73",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question",
+								"user",
+								"62393b40149411e13e61ab73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Question by Tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"What is the capital of Argentina?\",\n    \"answer\": \"Buenos Aires\",\n    \"wrong1\": \"Rosario\",\n    \"wrong2\": \"Salta\",\n    \"wrong3\": \"Cordoba\",\n    \"type\": \"multi\",\n    \"user\": \"62393a49149411e13e61ab70\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question/tag/624261eae0f0acaea6b55c6b",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question",
+								"tag",
+								"624261eae0f0acaea6b55c6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Question",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"wrong3\": \"5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question/update/62427681e7f96820704a7124",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question",
+								"update",
+								"62427681e7f96820704a7124"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Question by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/question/delete/62433ce79dbf6f8bc4090c83",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"question",
+								"delete",
+								"62433ce79dbf6f8bc4090c83"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tag Controller",
+			"item": [
+				{
+					"name": "Add Tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tag\": \"Entertainment: Film\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/tag/create",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/tag",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tag by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/tag/624276e6e7f96820704a712c",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								"624276e6e7f96820704a712c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tag\": \"Entertainment: Film\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/tag/update/624276e6e7f96820704a712c",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								"update",
+								"624276e6e7f96820704a712c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tag by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/tag/delete/624276e6e7f96820704a712c",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								"delete",
+								"624276e6e7f96820704a712c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Controller",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Martin\",\n    \"email\": \"martin@melerio.com\",\n    \"password\": \"Argentina\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/user/create",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/user",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/user/6244fc1486d40a5d4d93ddc3",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"6244fc1486d40a5d4d93ddc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Martin\",\n    \"password\": \"Argentina\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"HelloWorld\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/user/update/6244fc1486d40a5d4d93ddc3",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"update",
+								"6244fc1486d40a5d4d93ddc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/user/delete/6244fc1486d40a5d4d93ddc3",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"delete",
+								"6244fc1486d40a5d4d93ddc3"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz Controller",
+			"item": [
+				{
+					"name": "Create Quiz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"questions\": [{\n            \"question\": \"How many MVP trophies does Lebron James have?\",\n            \"answer\": \"4\",\n            \"wrong1\": \"2\",\n            \"wrong2\": \"1\",\n            \"wrong3\": \"3\",\n            \"type\": \"multi\",\n            \"tags\": [\n                {\n                    \"tag\": \"sports\",\n                    \"_id\": \"62426439967b78178534e4a1\"\n                }\n            ],\n            \"user\": \"62393a49149411e13e61ab70\",\n            \"_id\": \"62433347da72f33beb8efd33\"\n        },\n        {\n            \"question\": \"Which soccer player has won more Ballon d'Or?\",\n            \"answer\": \"Lionel Messi\",\n            \"wrong1\": \"Cristiano Ronaldo\",\n            \"wrong2\": \"Diego Maradona\",\n            \"wrong3\": \"Pele\",\n            \"type\": \"multi\",\n            \"tags\": [\n                {\n                    \"tag\": \"sports\",\n                    \"_id\": \"62426439967b78178534e4a1\"\n                }\n            ],\n            \"user\": \"62393bc1149411e13e61ab75\",\n            \"_id\": \"624334e5969bcb2e81dbee35\"\n        }\n    ],\n    \"user\": \"62393bc1149411e13e61ab75\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/quiz/create",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"quiz",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Quizzes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/quiz",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quiz by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/quiz/62451f43f4e12548ff0ff4fb",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"quiz",
+								"62451f43f4e12548ff0ff4fb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quiz by User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/quiz/user/62393a49149411e13e61ab70",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"quiz",
+								"user",
+								"62393a49149411e13e61ab70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quiz",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"62393a49149411e13e61ab70\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/quiz/update/62451f43f4e12548ff0ff4fb",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"quiz",
+								"update",
+								"62451f43f4e12548ff0ff4fb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quiz by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/quiz/delete/62451f43f4e12548ff0ff4fb",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"quiz",
+								"delete",
+								"62451f43f4e12548ff0ff4fb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Score Cotroller",
+			"item": [
+				{
+					"name": "Create Score",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"6244fc1486d40a5d4d93ddc3\",\n    \"quiz\": \"624366bd1404c3f9e9c3fb36\",\n    \"name\": \"Martin\",\n    \"email\": \"martin@melerio.com\",\n    \"score\": 100,\n    \"date\": \"2022-03-29T07:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/create",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Scores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Scores by Quiz ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/quiz/624366bd1404c3f9e9c3fb36",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"quiz",
+								"624366bd1404c3f9e9c3fb36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Scores by User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/user/62393a49149411e13e61ab70",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"user",
+								"62393a49149411e13e61ab70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Highest Score by Quiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/quiz/highscore/624366bd1404c3f9e9c3fb36",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"quiz",
+								"highscore",
+								"624366bd1404c3f9e9c3fb36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Highest Score by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/user/highscore/62393a49149411e13e61ab70",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"user",
+								"highscore",
+								"62393a49149411e13e61ab70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Score",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"score\": 95\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/update/62450b161c3f6864c6db7d43",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"update",
+								"62450b161c3f6864c6db7d43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Score by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/score/delete/62450b161c3f6864c6db7d43",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"score",
+								"delete",
+								"62450b161c3f6864c6db7d43"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Token Controller",
+			"item": [
+				{
+					"name": "Create Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/token/create/6244c67646498932aa1381d6",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"token",
+								"create",
+								"6244c67646498932aa1381d6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/token/6244c67646498932aa1381d6",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"token",
+								"6244c67646498932aa1381d6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Token",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "e242c65589b6f6b1c152a98714e3e8effcdb6adae53d76d7c247a10b8b515b91",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://trivialchase.herokuapp.com/token/delete",
+							"protocol": "https",
+							"host": [
+								"trivialchase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"token",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
