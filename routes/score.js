@@ -1,4 +1,5 @@
 const express = require('express');
+const isAuth = require('../middleware/isAuth');
 
 const router = express.Router();
 const scoreController = require('../controllers/score');
@@ -18,13 +19,13 @@ router.get('/score/quiz/highscore/:quiz_id', scoreController.getHighScoresByQuiz
 router.get('/score/user/highscore/:user_id', scoreController.getHighScoresByUser);// 1 high score or all high scores?
 
 // POST create a new score linked to quiz
-router.post('/score/create', scoreController.postScore);
+router.post('/score/create', isAuth, scoreController.postScore);
 
 // PUT update an existing score linked to quiz
-router.put('/score/update/:id', scoreController.putScore);
+router.put('/score/update/:id',isAuth, scoreController.putScore);
 
 //DELETE a score linked to quiz
-router.delete('/score/delete/:id', scoreController.deleteScore);
+router.delete('/score/delete/:id',isAuth, scoreController.deleteScore);
 
 
 module.exports = router;
