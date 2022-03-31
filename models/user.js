@@ -16,12 +16,15 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  admin: {
+    type: Boolean
+  },
   token: {
-    type: String,
+    type: String
   },
   tokenexpiration: {
     type: Date,
-    format: String,
+    format: String
   },
   // userStatus: { //1 = normal guy, 2 = admin, 3 = super admin
   //   type: Number,

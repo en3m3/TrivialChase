@@ -39,49 +39,11 @@ if (process.env.NODE_ENV !== 'production') {
   const tagRoutes = require('./routes/tag');
   const scoreRoutes = require('./routes/score');
   const tokenRoutes = require('./routes/token');
-  console.log("Set Route Variables");
 
-
-//   const authRoutes = require('./routes/auth');
-  
-//   app.use(bodyParser.urlencoded({extended: false}));
-//   app.use(express.static(path.join(__dirname, 'public')));
-//   app.use(
-//     session({
-//       secret: 'my secret',
-//       resave: false,
-//       saveUninitialized: false,
-//       store: store
-//     })
-//   );
-//   app.use(csrfProtection);
-//   app.use(flash());
-  
-//   app.use((req, res, next) => {
-//     res.locals.isAuthenticated = req.session.isLoggedIn;
-//     res.locals.csrfToken = req.csrfToken();
-//     next();
-//   });
-  
-//   app.use((req, res, next) => {
-//     if (!req.session.user) {
-//       return next();
-//     }
-//     User.findById(req.session.user._id)
-//       .then(user => {
-//         if (!user) {
-//           return next();
-//         }
-//         req.user = user;
-//         next();
-//       })
-//       .catch(err => {
-//         next(new Error(err));
-//       });
-//   });
   app.use(bodyParser.urlencoded({
     extended: true
   }));
+  
   app.use(bodyParser.json());
   app.use(questionRoutes);
   app.use(quizRoutes);
@@ -91,21 +53,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(userRoutes);
   console.log("Used Route Variables");
 
-
-//   app.get('/500', errorController.get500);
-  
-//   app.use(errorController.get404);
-  
-//   app.use((error, req, res, next) => {
-//     res.status(500).render('500', {
-//       pageTitle: 'Error!',
-//       path: '/500',
-//       isAuthenticated: req.session.isLoggedIn
-//     });
-//   });
-  
-//   app.use(errorController.get404);
-  
   mongoose
     .connect(MONGODB_URI)
     .then(result => {

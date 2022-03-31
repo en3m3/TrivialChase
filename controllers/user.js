@@ -62,19 +62,26 @@ exports.postUser = (req, res, next) => {
         });
 };
 
-
 exports.putUser = (req, res, next) => {
-    User.updateOne({_id: req.params.id}, {$set: req.body})
-    .then(res.status(200).json({message: 'Updated Successfully'}))
-    .then(console.log('Update updated successfully'))
-    .catch(err => res.json(err));
+    User.updateOne({ _id: req.params.id }, { $set: req.body })
+        .then(res.status(200).json({ message: 'Updated Successfully' }))
+        .then(console.log('Update updated successfully'))
+        .catch(err => res.json(err));
+};
+
+exports.giveAdmin = (req, res, next) => {
+    console.log(req.params);
+    User.updateOne({ _id: req.params.id }, { admin: true })
+        .then(res.status(200).json({ message: 'User promoted to admin' }))
+        .then(console.log('User promoted to admin'))
+        .catch(err => res.json(err));
 };
 
 exports.deleteUser = (req, res, next) => {
-    User.deleteOne({_id: req.params.id})
-    .then(res.status(200).json({message: 'Deleted Successfully'}))
-    .then(console.log('User deleted successfully'))
-    .catch(err => res.json(err));
+    User.deleteOne({ _id: req.params.id })
+        .then(res.status(200).json({ message: 'Deleted Successfully' }))
+        .then(console.log('User deleted successfully'))
+        .catch(err => res.json(err));
 };
 
 exports.getLogin = (req, res, next) => {
@@ -86,7 +93,7 @@ exports.getLogin = (req, res, next) => {
             validationErrors: errors.array()
         });
     }
-  
+
     User.findOne({ username: username })
         .then(user => {
             if (!user) {
@@ -98,7 +105,7 @@ exports.getLogin = (req, res, next) => {
                 });
                 return;
             }
-            
+
             bcrypt
                 .compare(password, user.password)
                 .then(doMatch => {
@@ -117,39 +124,39 @@ exports.getLogin = (req, res, next) => {
                             const token = buffer.toString('hex');
                             user.token = token;
                             user.tokenexpiration = Date.now() + 6400000;
-                            
+
                             console.log(user.token, user.tokenexpiration);
                             user.save()
                                 .then(data => {
                                     res.json(
                                         {
-                                            success: true, 
-                                            token: data.token 
+                                            success: true,
+                                            token: data.token
                                         });
                                     return;
                                 })
                                 .catch(err => {
-                                    res.json({ 
-                                            token: 0,
-                                            success: false,
-                                            error: err 
-                                        });
+                                    res.json({
+                                        token: 0,
+                                        success: false,
+                                        error: err
+                                    });
                                     return;
                                 });
                         });
 
-                    }else{
+                    } else {
                         res.json({
                             token: 0,
                             success: false,
                             message: 'Invalid username or password.'
                         });
-                        return; 
+                        return;
                     }
                 })
 
         });
-    };
+};
 
 
 

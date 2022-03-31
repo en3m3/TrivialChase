@@ -1,5 +1,6 @@
 const express = require('express');
 const isAuth = require('../middleware/isAuth');
+// const isAdmin = require('../middleware/isAdmin');
 
 const router = express.Router();
 const userController = require('../controllers/user');
@@ -13,22 +14,14 @@ router.get('/user/:id', userController.getUser);
 router.post('/user/create', userController.postUser);
 
 // PUT update an existing USER
-router.put('/user/update/:id', isAuth ,userController.putUser);
+router.put('/user/update/:id', isAuth , userController.putUser);
 
-// DETELE a USER
-router.delete('/user/delete/:id', isAuth, userController.deleteUser);
+// PUT admin = true on existing USER, must pass current token and be admin for permission
+// router.put('/user/giveAdmin/:id', userController.giveAdmin);
 
 router.get('/login', userController.getLogin);
 
 module.exports = router;
-
-
-
-
-
-
-
-
 
 
 // //Starter Stuff provided by Martin
