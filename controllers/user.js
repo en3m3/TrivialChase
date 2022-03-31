@@ -33,20 +33,20 @@ exports.getUser = (req, res, next) => {
 };
 
 exports.postUser = (req, res, next) => {
-    console.log(req.body);
-    console.log("routed");
     const password = req.body.password;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-    bcrypt.hash("password", 12)
+    bcrypt.hash(password, 12)
         .then(hashedpassword => {
             const user = new User(
                 {
                     username: req.body.username,
                     email: req.body.email,
                     password: hashedpassword,
+                    token: "",
+                    tokenexpiration: "",
                     quizzes: req.body.quizzes || [],
                     scores: req.body.scores || []
                 }
@@ -78,53 +78,76 @@ exports.deleteUser = (req, res, next) => {
 };
 
 exports.getLogin = (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
+    const username = req.body.username.trim();
+    const password = req.body.password.trim();
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.json({
             validationErrors: errors.array()
         });
     }
+  
     User.findOne({ username: username })
         .then(user => {
             if (!user) {
                 res.json({
                     token: 0,
-                    errorMessage: 'Invalid email or password.'
+                    success: false,
+                    error: err,
+                    message: 'Invalid email or password.'
                 });
                 return;
             }
+            
             bcrypt
                 .compare(password, user.password)
                 .then(doMatch => {
+                    console.log(doMatch);
                     if (doMatch) {
                         crypto.randomBytes(32, (err, buffer) => {
                             if (err) {
-                                return res.json('failed to create user token');
+                                return res.json(
+                                    {
+                                        token: 0,
+                                        success: false,
+                                        error: err,
+                                        message: 'failed to create user token'
+                                    });
                             }
                             const token = buffer.toString('hex');
-
                             user.token = token;
                             user.tokenexpiration = Date.now() + 6400000;
+                            
+                            console.log(user.token, user.tokenexpiration);
                             user.save()
                                 .then(data => {
-                                    res.json({ token: data.token });
+                                    res.json(
+                                        {
+                                            success: true, 
+                                            token: data.token 
+                                        });
                                     return;
                                 })
                                 .catch(err => {
-                                    res.json({ error: err });
+                                    res.json({ 
+                                            token: 0,
+                                            success: false,
+                                            error: err 
+                                        });
                                     return;
                                 });
                         });
+
+                    }else{
+                        res.json({
+                            token: 0,
+                            success: false,
+                            message: 'Invalid username or password.'
+                        });
+                        return; 
                     }
-                });
-        })
-        .catch(err => {
-            return res.json({
-                token: 0,
-                errorMessage: 'Invalid username or password. 2'
-            });
+                })
+
         });
     };
 

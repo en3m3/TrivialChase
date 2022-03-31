@@ -16,9 +16,6 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  // usserStatus: {
-
-  // }
   token: {
     type: String,
   },
