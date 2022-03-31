@@ -12,13 +12,13 @@ router.get('/quiz/:id', quizController.getQuiz);
 router.get('/quiz/user/:user_id', quizController.getQuizByUser);
 
 // POST create new quiz
-router.post('/quiz/create', quizController.postQuiz);
+router.post('/quiz/create', isAuth, quizController.postQuiz);
 
 // PUT update existing quiz
-router.put('/quiz/update/:id', quizController.putQuiz);
+router.put('/quiz/update/:id', isAuth, quizController.putQuiz);
 
 // DELETE a quiz
-router.delete('/quiz/delete/:id', quizController.deleteQuiz);
+router.delete('/quiz/delete/:id', isAuth, quizController.deleteQuiz);
 
 
 module.exports = router;

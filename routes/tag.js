@@ -10,12 +10,12 @@ router.get('/tag', tagController.getAllTags);
 router.get('/tag/:id', tagController.getTag); //get tag by name instead???
 
 // POST create a new TAG
-router.post('/tag/create', tagController.postTag);
+router.post('/tag/create', isAuth, tagController.postTag);
 
 // PUT update an existing TAG
-router.put('/tag/update/:id', tagController.putTag);
+router.put('/tag/update/:id', isAuth, tagController.putTag);
 
 // DETELE a TAG
-router.delete('/tag/delete/:id', tagController.deleteTag);
+router.delete('/tag/delete/:id', isAuth, tagController.deleteTag);
 
 module.exports = router;
