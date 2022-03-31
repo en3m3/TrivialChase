@@ -50,7 +50,6 @@ exports.postAddQuestion = (req, res, next) => {
 };
 
 exports.putQuestion = (req, res, next) => {
-    console.log(req.params);
     Question.updateOne({_id: req.params.id}, {$set: req.body})
     .then(res.status(200).json({message: 'Updated Successfully'}))
     .then(console.log('Question updated successfully'))
