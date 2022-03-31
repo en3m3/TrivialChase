@@ -21,7 +21,7 @@ router.get('/question/tag/:tag_id', questionController.getQuestionByTag);
 router.post('/question/create', isAuth, questionController.postAddQuestion);
 
 // PUT Update question
-router.put('/question/update/:id', questionController.putQuestion);
+router.put('/question/update/:id', isAuth, questionController.putQuestion);
 
 // DELETE a question
 router.delete('/question/delete/:id', isAuth, questionController.deleteQuestion);
