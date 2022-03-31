@@ -3,17 +3,15 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var scoreSchema = new Schema({
-	scoreId: {
+	username: {
 		type: String,
-		required: true
-	},
-	name: {
-		type: String,
-		required: true
+		required: true,
+		ref: 'User'
 	},
 	email: {
 		type: String,
-		required: true
+		required: true,
+		ref: 'User'
 	},
 	score: {
 		type: Number,
@@ -25,18 +23,15 @@ var scoreSchema = new Schema({
 		default: Date.now
 	},
 	user: {
-		userId: {
 			type: Schema.Types.ObjectId,
 			required: true,
 			ref: 'User'
-		}
 	},
-	quiz:
-		{quizId: {
+	quiz: {
 			type: Schema.Types.ObjectId,
 			ref: 'Quiz',
 			required: true
-		}},
+		},
 });
 
 
