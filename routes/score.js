@@ -6,10 +6,10 @@ const scoreController = require('../controllers/score');
 router.get('/score', scoreController.getAllScores);
 
 // GET all scores for a quiz
-router.get('/score/:quiz_id', scoreController.getScoreByQuiz);
+router.get('/score/quiz/:quiz_id', scoreController.getScoreByQuiz);
 
 // GET all scores for a user
-router.get('/score/:user_id', scoreController.getScoreByUser);
+router.get('/score/user/:user_id', scoreController.getScoreByUser);
 
 // GET user's high score(s?)
 router.get('/score/highscore/:user_id', scoreController.getHighScores);// 1 high score or all high scores?
@@ -18,13 +18,13 @@ router.get('/score/highscore/:user_id', scoreController.getHighScores);// 1 high
 router.post('/score/HighScores', scoreController.postHighScores);
 
 // POST create a new score linked to quiz
-router.post('/score', scoreController.postScore);
+router.post('/score/create', scoreController.postScore);
 
 // PUT update an existing score linked to quiz
-router.put('/score/:quiz_id', scoreController.putScore);
+router.put('/score/update/:quiz_id', scoreController.putScore);
 
 //DELETE a score linked to quiz
-router.delete('/score/:quiz_id', scoreController.deleteScore);
+router.delete('/score/delete/:quiz_id', scoreController.deleteScore);
 
 
 module.exports = router;

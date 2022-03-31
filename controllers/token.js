@@ -27,9 +27,9 @@ exports.postSessionToken = (req, res, next) => {
 
 // Destroy the token in the database
 exports.deleteSessionToken = (req, res, next) => {
-    Token.deleteOne({_id: req.params.id})
-    .then(res.status(200).json({message: 'Deleted Successfully'}))
-    .then(console.log('Question deleted successfully'))
+    Token.deleteMany()
+    .then(res.status(200).json({message: 'Deleted Token Successfully'}))
+    .then(console.log('Token deleted successfully'))
     .catch(err => res.json(err));
 };
 
