@@ -63,10 +63,24 @@ exports.postUser = (req, res, next) => {
 };
 
 exports.putUser = (req, res, next) => {
+    if(req.body.password) {
+        bcrypt.hash(req.body.password, 12)
+        .then(hashedpassword => {
+            req.body.password = hashedpassword;
+            User.updateOne({ _id: req.params.id }, { $set: req.body,password:hashedpassword })
+            .then(res.status(200).json({ message: 'Password Updated Successfully' }))
+            .then(console.log('Password updated successfully'))
+            .catch(err => res.json(err))
+            
+        })
+        return;
+    } else{
     User.updateOne({ _id: req.params.id }, { $set: req.body })
         .then(res.status(200).json({ message: 'Updated Successfully' }))
         .then(console.log('Update updated successfully'))
         .catch(err => res.json(err));
+        return;
+    }
 };
 
 exports.giveAdmin = (req, res, next) => {
