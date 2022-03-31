@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 const express = require('express');
+const isAuth = require('../middleware/isAuth');
 
 const router = express.Router();
 const tagController = require('../controllers/tag');
